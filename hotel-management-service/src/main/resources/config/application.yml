@@ -1,0 +1,46 @@
+server:
+  port: 7580
+
+management:
+  port: 7533
+  security:
+    enabled: false
+ 
+ # Discovery Server Access
+eureka:
+    client:
+      serviceUrl:
+        defaultZone: http://localhost:8761/eureka/   
+
+      
+spring:
+  profiles:
+    active: sysTest,oauth2
+  application:
+    name: hotelmanagementsystem
+  cloud:
+    config:
+      enabled: false
+  datasource:
+    url: jdbc:mysql://localhost:3306/hotelmanagement?tinyInt1isBit=false
+    username: root
+    driver-class-name: com.mysql.jdbc.Driver
+    validationQuery: SELECT 1
+  jpa:
+    database: MYSQL
+    show-sql: true
+    hibernate:
+      ddl-auto: create
+      dialect: org.hibernate.dialect.MySQL5Dialect
+
+info:
+  app:
+    name: Hotel Management System
+    description: Hotel Management System API
+
+logging:
+  level:
+    org:
+      springframework: WARN
+   
+
